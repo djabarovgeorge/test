@@ -1,6 +1,0 @@
-[submodule "git-ex"]
-	path = git-ex
-	branch = main
-	url = git@github.com:djabarovgeorge/git-ex.git
-	branch = dev
-	branch = main
