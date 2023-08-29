@@ -1,3 +1,4 @@
 [submodule "git-ex"]
 	path = git-ex
 	url = git@github.com:djabarovgeorge/git-ex.git
+	branch = dev
