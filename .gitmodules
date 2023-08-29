@@ -2,3 +2,13 @@
 	path = git-ex
 	url = git@github.com:djabarovgeorge/git-ex.git
 	branch = dev
+	branch = main
+	branch = main
+[submodule "packages/git@github.com:djabarovgeorge/git-ex.git"]
+	branch = main
+[submodule "packages/git-ex.git"]
+	branch = main
+[git-ex "git"]
+	branch = main
+[submodule "git-ex.git"]
+	branch = main
