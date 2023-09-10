@@ -1,0 +1,29 @@
+name: Deploy DEV API
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  workflow_dispatch:
+    inputs:
+      myInput:
+        description: 'My input'
+        default: "my input value"
+  push:
+    branches:
+      - next
+      - main
+
+jobs:
+  deploy_dev_api:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    environment: Development
+    permissions:
+      contents: read
+      packages: write
+      deployments: write
+      id-token: write
+    steps:
+      - name: Output Inputs
+        run: echo "${{ toJSON(github.event.inputs) }}"
