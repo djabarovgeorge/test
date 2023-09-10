@@ -27,3 +27,5 @@ jobs:
     steps:
       - name: Output Inputs
         run: echo "${{ toJSON(github.event.inputs) }}"
+      - name: Output Input Branch
+        run: echo branch - "${{ github.ref_name }}"
