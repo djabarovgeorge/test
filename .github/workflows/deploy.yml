@@ -19,12 +19,12 @@ jobs:
     outputs:
       has_token: ${{ steps.secret-check.outputs.has_token }}
     steps:
-    - uses: actions/checkout@v3
-    - name: Check if secret exists
-      id: secret-check
-      uses: ./.github/actions/secret-exists
-      with:
-        secret: 123
+      - uses: actions/checkout@v3
+      - name: Check if secret exists
+        id: secret-check
+        uses: ./.github/actions/secret-exists
+        with:
+          secret: 123
 
   deploy_dev_api:
     # The type of runner that the job will run on
@@ -61,5 +61,5 @@ jobs:
           fi
 
       - name: Display result as is
-        run: echo "${{ check_token.outputs.has_token }}"
+        run: echo "${{ needs.check_token.outputs.has_token }}"
 
