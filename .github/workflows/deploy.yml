@@ -59,6 +59,8 @@ jobs:
             echo "Secret does not exist."
           fi
 
+      - name: Display result as is
+        run: echo "${{ needs.check_token.outputs.has_token }}"
 
       - name: Display result as is
-        run: echo "${{ fromJson(needs.check_token.outputs.has_token) }}"
+        run: echo "${{ fromJson(needs.check_token.outputs.has_token)[0] }}"
