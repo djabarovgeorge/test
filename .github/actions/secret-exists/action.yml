@@ -12,15 +12,18 @@ outputs:
     description: "The first output string"
     value: ${{ steps.outputs.output.result }}
 
-    name: Generate output
-    runs-on: ubuntu-latest
-    outputs:
-      output: ${{ steps.result.outputs.has_token }}
-    steps:
-      - id: result
-        run: |
-          if ! [[ -z "${{ inputs.secret }}" ]]; then
-            echo ::set-output has_token=true >> $GITHUB_OUTPUT
-          else
-            echo ::set-output has_token=false >> $GITHUB_OUTPUT
-          fi
+runs:
+  using: composite
+
+  name: Generate output
+  runs-on: ubuntu-latest
+  outputs:
+    output: ${{ steps.result.outputs.has_token }}
+  steps:
+    - id: result
+      run: |
+        if ! [[ -z "${{ inputs.secret }}" ]]; then
+          echo ::set-output has_token=true >> $GITHUB_OUTPUT
+        else
+          echo ::set-output has_token=false >> $GITHUB_OUTPUT
+        fi
