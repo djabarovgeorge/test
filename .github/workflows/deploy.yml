@@ -35,5 +35,7 @@ jobs:
       - name: Output Submodules Token Exists
         id: submodules_token
         uses: ./.github/actions/secret-exists
+        with:
+          secret: 123
 
       - run: echo ${{ steps.submodules_token.outputs.exist }}
