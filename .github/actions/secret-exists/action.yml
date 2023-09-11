@@ -7,16 +7,9 @@ inputs:
     description: 'Secret parameter to check'
     required: false
 
-outputs:
-  exist:
-    description: "The first output string"
-    value: ${{ steps.outputs.output.result }}
-
 runs:
-  using: composite
+  using: 'bash'
 
-  outputs:
-    output: ${{ steps.result.outputs.has_token }}
   steps:
     - id: result
       run: |
