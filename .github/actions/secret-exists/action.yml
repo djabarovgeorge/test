@@ -16,6 +16,7 @@ runs:
   using: 'composite'
   steps:
     - name: Check Secret Existence
+      shell: bash
       id: secret-check
       run: |
         if [[ -n "${{ inputs.secret }}" ]]; then
