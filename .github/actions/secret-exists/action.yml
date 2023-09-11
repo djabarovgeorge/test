@@ -26,5 +26,6 @@ runs:
         fi
 
     - name: Echo Result
+      shell: bash
       run:
         echo "Secret exists: ${{ steps.secret-check.outputs.has_token }}"
