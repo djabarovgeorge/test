@@ -36,7 +36,7 @@ jobs:
         id: secret-check
         uses: ./.github/actions/secret-exists
         with:
-          secret: MY_SECRET
+          secret:
 
       - name: Display result
         run: |
