@@ -45,3 +45,7 @@ jobs:
           else
             echo "Secret does not exist."
           fi
+
+
+      - name: Display result as is
+        run: echo "${{ steps.secret-check.outputs.has_token }}"
