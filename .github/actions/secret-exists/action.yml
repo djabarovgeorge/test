@@ -9,6 +9,7 @@ inputs:
 
 outputs:
   has_token:
+    value: ${{ steps.secret-check.outputs.has_token }}
     description: 'Indicates if the secret exists or not.'
 
 runs:
