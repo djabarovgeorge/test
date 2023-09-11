@@ -48,4 +48,4 @@ jobs:
 
 
       - name: Display result as is
-        run: echo "${{ steps.secret-check.outputs.has_token }}"
+        run: echo "${{ steps.secret-check.outputs }}"
