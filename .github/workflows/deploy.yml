@@ -16,9 +16,10 @@ on:
 jobs:
   check_token:
     runs-on: ubuntu-latest
+    outputs:
+      has_token: ${{ steps.secret-check.outputs.has_token }}
     steps:
-    - name: Clone Repo
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Check if secret exists
       id: secret-check
       uses: ./.github/actions/secret-exists
