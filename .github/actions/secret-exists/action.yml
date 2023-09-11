@@ -3,7 +3,7 @@ name: Reusable workflow
 description: Checks if a secret exists
 
 inputs:
-  enabled:
+  secret:
     description: 'Secret parameter to check'
     required: false
 
@@ -21,7 +21,7 @@ jobs:
     steps:
       - id: result
         run: |
-          if ! [[ -z "${{ secrets.SUBMODULES_TOKEN }}" ]]; then
+          if ! [[ -z "${{ inputs.secret }}" ]]; then
             echo ::set-output has_token=true >> $GITHUB_OUTPUT
           else
             echo ::set-output has_token=false >> $GITHUB_OUTPUT
