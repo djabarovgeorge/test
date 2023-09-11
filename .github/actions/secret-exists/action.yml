@@ -1,20 +1,24 @@
-name: Reusable workflow
+name: Check Secret Existence
 
-description: Checks if a secret exists
+description: Check if a GitHub secret exists.
 
 inputs:
   secret:
-    description: 'Secret parameter to check'
-    required: false
+    description: 'The name of the secret to check.'
+    required: true
+
+outputs:
+  has_token:
+    description: 'Indicates if the secret exists or not.'
 
 runs:
-  shell: bash
-
+  using: 'composite'
   steps:
-    - id: result
+    - name: Check Secret Existence
+      id: secret-check
       run: |
-        if ! [[ -z "${{ inputs.secret }}" ]]; then
-          echo ::set-output has_token=true >> $GITHUB_OUTPUT
+        if [[ -n "${{ secrets.${{ inputs.secret }} }}" ]]; then
+          echo "::set-output name=has_token::true"
         else
-          echo ::set-output has_token=false >> $GITHUB_OUTPUT
+          echo "::set-output name=has_token::false"
         fi

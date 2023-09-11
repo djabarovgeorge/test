@@ -39,3 +39,17 @@ jobs:
           secret: 123
 
       - run: echo ${{ steps.submodules_token.outputs.exist }}
+
+      - name: Check if secret exists
+        id: secret-check
+        uses: ./.github/actions/secret-exists
+        with:
+          secret: MY_SECRET
+
+      - name: Display result
+        run: |
+          if [[ "${{ steps.secret-check.outputs.has_token }}" == "true" ]]; then
+            echo "Secret exists."
+          else
+            echo "Secret does not exist."
+          fi
