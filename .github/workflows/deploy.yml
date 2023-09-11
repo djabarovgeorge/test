@@ -20,7 +20,7 @@ jobs:
       has_token: ${{ steps.secret-check.outputs.has_token }}
     steps:
       - uses: actions/checkout@v3
-      - run : echo ${{ secrets.SUBMODULE }}
+      - run : echo ${{ secrets.SUBMODULE == "some-value" }}
       - name: Check if secret exists
         id: secret-check
         uses: ./.github/actions/secret-exists
