@@ -17,7 +17,7 @@ runs:
     - name: Check Secret Existence
       id: secret-check
       run: |
-        if [[ -n "${{ secrets.${{ inputs.secret }} }}" ]]; then
+        if [[ -n "${{ inputs.secret }}" ]]; then
           echo "::set-output name=has_token::true"
         else
           echo "::set-output name=has_token::false"
