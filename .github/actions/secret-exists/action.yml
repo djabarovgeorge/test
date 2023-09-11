@@ -10,10 +10,8 @@ inputs:
 outputs:
   exist:
     description: "The first output string"
-    value: ${{ jobs.example_job.outputs.output.result }}
+    value: ${{ steps.outputs.output.result }}
 
-jobs:
-  example_job:
     name: Generate output
     runs-on: ubuntu-latest
     outputs:
