@@ -24,7 +24,7 @@ jobs:
         id: secret-check
         uses: ./.github/actions/secret-exists
         with:
-          secret:
+          secret: ${{ secrets.SUBMODULE }}
 
   deploy_dev_api:
     # The type of runner that the job will run on
