@@ -24,8 +24,3 @@ runs:
         else
           echo "::set-output name=has_token::false"
         fi
-
-    - name: Echo Result
-      shell: bash
-      run:
-        echo "Secret exists: ${{ steps.secret-check.outputs.has_token }}"
