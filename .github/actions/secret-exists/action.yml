@@ -15,8 +15,6 @@ outputs:
 runs:
   using: composite
 
-  name: Generate output
-  runs-on: ubuntu-latest
   outputs:
     output: ${{ steps.result.outputs.has_token }}
   steps:
