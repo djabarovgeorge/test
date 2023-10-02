@@ -25,7 +25,6 @@ jobs:
         id: secret-check
         uses: ./.github/actions/secret-exists
         with:
-#          secret: "qwerty"
           secret: ${{ secrets.SUBMODULE }}
 
   deploy_dev_api:
